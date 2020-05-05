@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SRPMS Builder Example</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <!-- Text -->
+    <p><b>Hi! This is an example builder file served from node.js.></b></p> <br>
+    <!-- Button -->
+    <button onclick="getcontractdetails()" type="button">Click me to demonstrate an HTTP API call to the server.</button><br>
+    <!-- Where requested info will go -->
+    <p id="puthere"></p>
+
+  </body>
+</html>
+
+<!-- JavaScript Front End -->
+<script>
+
+function getcontractdetails() {
+  // Make an HTTP Request 
+  console.log("Making client side http request to server using javascript")
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "http://localhost:1010/api/contractapplicationdetails", true);
+  xhr.send();
+  // since request is async have to add a listener 
+  xhr.addEventListener("readystatechange", processRequest, false);
+  xhr.onreadystatechange = processRequest;
+  function processRequest(e) {
+    // onready state can report back many different states. 4 means DONE (everything is completed)
+    // error handling, the http request might be junk so we need to check the HTTP Status code too. This manages the actual http errors, not user generated ones.
+    if (xhr.readyState == 4 & xhr.status == 200) {
+      // save response in variable 
+      var response = JSON.parse(xhr.responseText);
+      document.getElementById("puthere").innerHTML = JSON.stringify(response);
+    }
+}
+ 
+}
+
+</script>

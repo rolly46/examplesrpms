@@ -1,0 +1,22 @@
+{
+  "name": "examplesrpms",
+  "version": "1.0.0",
+  "description": "an example communication of srpms",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolly46/examplesrpms.git"
+  },
+  "author": "Sam Ralston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolly46/examplesrpms/issues"
+  },
+  "homepage": "https://github.com/rolly46/examplesrpms#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
